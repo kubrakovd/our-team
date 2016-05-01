@@ -1,0 +1,301 @@
+@primary: #FC0;
+@breakpoint-medium:768px;
+@base-font-family: 'Raleway', sans-serif;
+@heading-font-family: 'Roboto', sans-serif;
+
+@import (less) "../css/normalize.css";
+@import (less) "../css/layout.css";
+
+
+
+body{
+	font: 500 14px/1.7 @base-font-family;
+	color: #333;
+}
+
+/* Typography */
+h1,h2,h3,h4,h5,h6{
+	color: #666;
+	font-family: @base-font-family;
+	font-weight: 900;
+	line-height: 1.2;
+
+
+}
+
+a,
+[type="submit"],
+[type="button"],
+button{
+	transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+}
+a{
+}
+input[type="submit"],
+input[type="button"],
+button,
+.ba-button{
+	display: inline-block;
+	color: #666;
+	font:500 14px/1.64 @base-font-family;
+	text-transform: uppercase;
+	padding: 0 20px;
+	text-decoration: none;
+	outline:none;
+	border:1px solid @primary;
+	&:hover {
+		background-color:@primary;
+		color:#fff;
+	}
+
+}
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover,
+.ba-button:hover{
+
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+	transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+	&:focus {
+		outline: thick;
+	}
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+
+}
+/* Layout */
+.ba-container{
+	max-width: 1170px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.slick-slide{
+	outline:none;
+}
+
+
+// solial
+.ba-social {
+	&__link {
+		display: inline-block;
+		text-align: center;
+		line-height: 31px;
+		width: 30px;
+		height: 30px;
+		border:2px solid #ccc;
+		margin: 0 1px;
+		padding: 6px;
+		border-radius: 100%;
+		&:hover {
+			border-color:#333;
+		}
+	}
+	&__link:hover > svg {
+		fill:#333;
+	}
+
+	&__icon {
+		fill:#ccc;
+		display: block;
+		width: 14px;
+		height: 14px;
+		transition:fill .3s ease-in;
+	}
+}
+// slider
+@import "slick.less";
+
+.ba-team-slider {
+
+	.slick-prev, .slick-next {
+		display: none !important;
+		position: absolute;
+		top: ~"calc(50% - 20px - 25px)";
+		width: 20px;
+		height: 50px;
+		z-index: 3;
+		cursor: pointer;
+		fill:@primary;
+		transition:fill .3s;
+		&:hover {
+		 	fill:darken(@primary, 10%);
+		 }
+	}
+	@media (min-width:@breakpoint-medium) {
+	padding: 0 40px;
+		.slick-prev, .slick-next {
+			display: block !important;
+		}
+	}
+	.slick-prev {
+		left: 0;
+	}
+	.slick-next {
+		right: 0;
+	}
+	.slick-dots {
+		list-style: none;
+		padding: 20px 0 0;
+		margin: 0;
+		li {
+			display: inline-block;
+			padding: 0 5px;
+		}
+		button {
+			border:1px solid @primary;
+			padding: 0;
+			width: 10px;
+			height: 10px;
+			min-height: 0;
+			background: none;
+			line-height: 0;
+			font-size: 0;
+			border-radius:50%;
+		}
+		.slick-active {
+			button {
+				background-color:@primary;
+			}
+		}
+	}
+
+}
+
+
+
+/*team*/
+
+.ba-team{
+	padding: 50px 0;
+	text-align: center;
+
+}
+
+.ba-crewman{
+	&__info{
+		padding: 40px 10px;
+		@media (min-width: 768px){
+			padding: 80px 40px 70px 80px;
+			border-left: 1px solid @primary;
+		}
+		@media (max-width: 767px){
+			margin-top: 40px;
+			border-top: 1px solid @primary;
+		}
+
+	}
+	&__name{
+		font-size: 36px;
+	}
+	&__position{
+		font-family: "Raleway", Arial, sans-serif;
+		font-size: 24px;
+		font-weight: 400;
+	}
+	&__photo{
+		border: 1px solid #ffcc00;
+		padding: 14px;
+		background: #FFF;
+		position: relative;
+		display: inline-block;
+		img{
+			margin-left: auto;
+			margin-right: auto;
+			border: 1px solid #ffcc00;
+			position: relative;
+			z-index: 2;
+		}
+		&:after,
+		&:before{
+			content: "";
+			display: block;
+			background: #FFF;
+			position: absolute;
+			z-index: 1;
+			margin: auto;
+		}
+		&:before{
+			left: -4px;
+			right: -4px;
+			top: 0;
+			bottom: 0;
+			height: 50%;
+		}
+		&:after{
+			left: 0;
+			right: 0;
+			top: -4px;
+			bottom: -4px;
+			width: 50%;
+		}
+	}
+}
+.ba-subtitle{
+	color: #898F8F;
+	font-family: "Raleway";
+	font-size: 18px;
+	font-weight: 500;
+	margin: 0;
+
+}
+
+.ba-title{
+	color: @primary;
+	font-family: "Roboto";
+	font-size: 60px;
+	font-weight: 900;
+	margin: 0 0 50px;
+	text-transform: uppercase;
+	position: relative;
+	margin-left: 10px;
+	&:after{
+		display: block;
+		margin-top: 24px;
+		content: "";
+		max-width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+		height: 1px;
+		background: @primary;
+	}
+	&:before{
+		content: "";
+		width: 30px;
+		height: 20px;
+		background: #fff url(../img/icons/bonfire.svg) no-repeat 50%;
+		position: absolute;
+		bottom: -10px ;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+}
+
+
+
+
+
+
+.ba-flex {
+	display: flex;
+	&__el {
+		display: flex;
+		flex:1 1 50%;
+		align-items:center;
+		justify-content: center;
+	}
+}
